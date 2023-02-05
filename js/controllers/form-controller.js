@@ -1,4 +1,5 @@
 import Address from '../models/address.js';
+import * as requestService from '../services/request-service.js';
 
 function State() {
 
@@ -32,8 +33,17 @@ export function init() {
     state.errorNumber = document.querySelector('[data-error="number"]');
 
     state.inputNumber.addEventListener('change', handleInputNumberChange);
-
     state.btnClear.addEventListner('click', handleBtnClearClick);
+
+    state.btnSave.addEventListner('click', handleBtnSaveClick);
+
+    
+}
+
+async function handleBtnClearClick(event) {
+    event.preventDefault();
+    const result = await requestService.getJson('https://viacep.com.br/ws/01001000/json/');
+    console.log(result);
 }
 
 function handleInputNumberChange(event) {
