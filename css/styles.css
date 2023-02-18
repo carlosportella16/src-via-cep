@@ -37,6 +37,12 @@ html, body {
 
 .contact-link{
     color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.contact-link:hover {
+    color: rgba(255, 255, 255, 0.89);
     cursor: pointer;
 }
 
